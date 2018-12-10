@@ -28,6 +28,8 @@
   },
   "dependencies": {
     "vue": "^2.5.18",
-    "vue-router": "^3.0.2"
+    "vue-router": "^3.0.2",
+    "vuejs-datepicker": "^1.5.4",
+    "webpack-dev-server": "^3.1.10"
   }
 }

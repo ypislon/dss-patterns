@@ -6,7 +6,7 @@
     </div> -->
     <div class="input">
       <div class="date">
-        <input v-model="day.date" type="date">
+        <datepicker v-model="day.date" name="date" type="date"></datepicker>
       </div>
       <div class="intensity">
         <input v-model="day.intensity" type="hidden">
@@ -15,14 +15,30 @@
         <span class="intensity-2" v-bind:class="day.intensity == 2 ? 'active' : ''" @click="updateIntensity(2)"></span>
         <span class="intensity-3" v-bind:class="day.intensity == 3 ? 'active' : ''" @click="updateIntensity(3)"></span>
       </div>
+      <div class="symptoms">
+        <label for="light">Light sensitivity</label>
+        <input v-model="day.light" type="checkbox" name="light" value="">
+        <label for="sound">Sound sensitivity</label>
+        <input v-model="day.sound" type="checkbox" name="sound" value="">
+        <label for="nausea">Nausea</label>
+        <input v-model="day.nausea" type="checkbox" name="nausea" value="">
+      </div>
+      <div class="medicine">
+        <label for="medicine">Medicine intake</label>
+        <input v-model="day.medicine" type="text" name="medicine" value="">
+      </div>
     </div>
     <!-- <button v-on:click="logData()" type="button" name="button">Log data</button> -->
   </div>
 </template>
 
 <script>
+import Datepicker from 'vuejs-datepicker'
 
 export default {
+  components: {
+    Datepicker
+  },
   name: 'Day',
   props: {
       day: {
