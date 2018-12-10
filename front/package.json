@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/ypislon/dss-patterns#readme",
   "devDependencies": {
+    "bootstrap-vue": "^2.0.0-rc.11",
     "css-loader": "^2.0.0",
     "vue-loader": "^15.4.2",
     "vue-style-loader": "^4.1.2",

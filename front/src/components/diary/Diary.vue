@@ -3,13 +3,13 @@
 
     <div class="diary-header">
       <h3>Diary Number {{pattern.id}} | user: {{username}} | {{ avg }}</h3>
-      <button @click="toggleLayout()" type="button" name="button">Toggle Layout</button>
-      <button @click="isFoldedOut ? isFoldedOut = false : isFoldedOut = true" type="button" name="button">Fold diary</button>
+      <b-button @click="toggleLayout()" type="button" name="button">Toggle Layout</b-button>
+      <b-button @click="isFoldedOut ? isFoldedOut = false : isFoldedOut = true" type="button" name="button">Fold diary</b-button>
     </div>
 
     <div class="diary-form">
       <label for="date">Start date: {{startDate}}</label>
-      <input v-model="date" name="date" type="date"><br>
+      <datepicker v-model="date" name="date" type="date"></datepicker><br>
       <label for="intensity">Intensity</label>
       <input v-model="intensity" name="intensity" type="text">
     </div>
@@ -30,10 +30,14 @@
 
 <script>
 import Day from './Day.vue'
+import BootstrapVue from 'bootstrap-vue'
+import Datepicker from 'vuejs-datepicker'
 
 export default {
   components: {
-    Day
+    Day,
+    BootstrapVue,
+    Datepicker
   },
   props: {
     pattern: {
@@ -65,14 +69,18 @@ export default {
   methods: {
     createDay() {
       var newDate = new Date()
+
       if(this.pattern.days != undefined) {
-        newDate = new Date()
         if(this.pattern.days.length == 0) {
+          console.log("days == 0")
           console.log(typeof this.startDate)
-          var currentDate = this.startDate
+          newDate = this.startDate
         } else if (this.pattern.days.length > 0) {
-          var currentDate = this.daySort(this.pattern.days).slice(-1).pop().date
-          newDate.setDate(currentDate + 1)
+          console.log("days > 0")
+          console.log(typeof this.startDate)
+          console.log(this.startDate)
+          var lastDate = this.daySort(this.pattern.days).slice(-1).pop().date
+          newDate.setDate(lastDate.getDate() + 1)
         }
       }
 
