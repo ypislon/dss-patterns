@@ -15,12 +15,11 @@
     </div>
 
     <div class="diary-add-day">
-      <button v-on:click="createDay()" type="button" name="button">Add an entry</button>
-      <button v-on:click="calculateAverage()" type="button" name="button">Average</button>
+      <b-button v-on:click="createDay()" type="button" name="button">Add an entry</b-button>
+      <b-button v-on:click="calculateAverage()" type="button" name="button">Average</b-button>
     </div>
 
     <div class="diary-dates" v-bind:class="isRowLayout ? 'row' : ''">
-      <!-- <Day v-for="day in daySort(pattern.days)" v-bind:key="day.date" v-bind:day="day" /> -->
       <Day v-for="day in pattern.days" v-bind:key="day.id" v-bind:day="day" />
     </div>
 
@@ -56,7 +55,6 @@ export default {
   data () {
       return {
         id: this.pattern.id,
-        // day_id: Math.floor(Math.random() * Math.floor(100)),
         date: this.startDate,
         intensity: 0,
         isRowLayout: false,
@@ -70,15 +68,11 @@ export default {
     createDay() {
       var newDate = new Date()
 
+      // create new date after the last one
       if(this.pattern.days != undefined) {
         if(this.pattern.days.length == 0) {
-          console.log("days == 0")
-          console.log(typeof this.startDate)
           newDate = this.startDate
         } else if (this.pattern.days.length > 0) {
-          console.log("days > 0")
-          console.log(typeof this.startDate)
-          console.log(this.startDate)
           var lastDate = this.daySort(this.pattern.days).slice(-1).pop().date
           newDate.setDate(lastDate.getDate() + 1)
         }
@@ -116,7 +110,6 @@ export default {
         var total = 0
         this.pattern.days.forEach((el) => {
           total = total + el.intensity
-          console.log(el.intensity)
         })
         this.avg = total / this.pattern.days.length
       } else {
@@ -128,31 +121,57 @@ export default {
 
 </script>
 
-<style>
+<style lang="scss">
 
-.folded .diary-dates {
-  display: none;
-}
-
-.folded .diary-add-day {
-  display: none;
+.folded {
+  .diary-dates {
+    display: none;
+  }
+  .diary-add-day {
+    display: none;
+  }
 }
 
 .diary-dates {
   display: flex;
   flex-direction: column;
-}
 
-.diary-dates.row {
-  flex-direction: row;
-}
+  &.row {
+    flex-direction: row;
 
-.diary-dates.row .input {
-  flex-direction: column;
-}
+    .input {
+      flex-direction: column;
+    }
 
-.diary-dates.row .intensity {
-  flex-direction: column-reverse;
+    .intensity {
+      flex-direction: column-reverse;
+    }
+
+    .symptoms {
+      flex-direction: row;
+    }
+
+    .symptom-item {
+      display: inline;
+
+      label {
+        display: none;
+      }
+    }
+
+    .medicine {
+      display: none;
+    }
+
+    .date {
+      width: 80px;
+
+      input {
+        width: 80px;
+      }
+    }
+
+  }
 }
 
 .diary-add-day {

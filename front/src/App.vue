@@ -14,7 +14,7 @@
         <label for="startDate">Start date of diary</label>
         <!-- <input v-model="startDate" name="startDate" type="date"> -->
         <datepicker v-model="startDate" name="startDate"></datepicker>
-        <button v-on:click="createPattern()" type="button" name="button">Add new diary entry</button>
+        <b-button v-on:click="createPattern()" type="button" name="button">Add new diary entry</b-button>
         <!-- <button v-on:click="logData()" type="button" name="button">Log Data</button> -->
       </div>
 
@@ -23,7 +23,6 @@
       </div>
     </div>
 
-
   </div>
 </template>
 
@@ -31,7 +30,7 @@
 import Navbar from './components/Navbar.vue'
 import Diary from './components/diary/Diary.vue'
 import Container from './components/blocks/Container.vue'
-import Datepicker from 'vuejs-datepicker';
+import Datepicker from 'vuejs-datepicker'
 
 export default {
   components: {
@@ -70,7 +69,7 @@ export default {
 <style>
 #app {
   margin-top: 80px;
-  font-family: Arial;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 a {

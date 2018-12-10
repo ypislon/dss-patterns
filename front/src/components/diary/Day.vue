@@ -16,12 +16,18 @@
         <span class="intensity-3" v-bind:class="day.intensity == 3 ? 'active' : ''" @click="updateIntensity(3)"></span>
       </div>
       <div class="symptoms">
-        <label for="light">Light sensitivity</label>
-        <input v-model="day.light" type="checkbox" name="light" value="">
-        <label for="sound">Sound sensitivity</label>
-        <input v-model="day.sound" type="checkbox" name="sound" value="">
-        <label for="nausea">Nausea</label>
-        <input v-model="day.nausea" type="checkbox" name="nausea" value="">
+        <div class="symptom-item">
+          <label for="light">Light sensitivity</label>
+          <input v-model="day.light" type="checkbox" name="light" value="">
+        </div>
+        <div class="symptom-item">
+          <label for="sound">Sound sensitivity</label>
+          <input v-model="day.sound" type="checkbox" name="sound" value="">
+        </div>
+        <div class="symptom-item">
+          <label for="nausea">Nausea</label>
+          <input v-model="day.nausea" type="checkbox" name="nausea" value="">
+        </div>
       </div>
       <div class="medicine">
         <label for="medicine">Medicine intake</label>
@@ -59,7 +65,7 @@ export default {
 
 </script>
 
-<style scoped>
+<style lang="scss">
 
 .day {
   border: 1px solid blue;
@@ -89,10 +95,10 @@ export default {
   min-height: 80px;
   min-width: 80px;
   opacity: .2;
-}
 
-.day .input .intensity span.active {
-  opacity: 1;
+  &.active {
+    opacity: 1;
+  }
 }
 
 .intensity-0 {
@@ -109,6 +115,16 @@ export default {
 
 .intensity-3 {
   background-color: red;
+}
+
+.symptoms {
+
+}
+
+.symptom-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 3px;
 }
 
 </style>
