@@ -1,0 +1,33 @@
+{
+  "name": "dss-patterns",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config build/webpack.config.dev.js",
+    "start:dev": "webpack-dev-server --hot --config build/webpack.config.dev.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ypislon/dss-patterns.git"
+  },
+  "author": "ypislon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ypislon/dss-patterns/issues"
+  },
+  "homepage": "https://github.com/ypislon/dss-patterns#readme",
+  "devDependencies": {
+    "css-loader": "^2.0.0",
+    "vue-loader": "^15.4.2",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.5.18",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "vue": "^2.5.18",
+    "vue-router": "^3.0.2"
+  }
+}
