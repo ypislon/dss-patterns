@@ -2,9 +2,9 @@
   <div>
 
     <div class="diary-header">
-      Diary Number {{pattern.id}} | Username: {{username}}
+      Diary Number {{pattern.id}} | user: {{username}} | {{ avg }}
 
-      <button v-on:click="logData()" type="button" name="button">Log Data</button>
+      <!-- <button v-on:click="logData()" type="button" name="button">Log Data</button> -->
       <button v-on:click="pattern_sorted_f()" type="button" name="button">Log sorted thingy</button>
 
       <div class="">
@@ -18,11 +18,13 @@
     </div>
 
     <div class="diary-dates" v-bind:class="isRowLayout ? 'row' : ''">
-      <Day v-for="day in daySort(pattern.days)" v-bind:key="day.date" v-bind:day="day" />
+      <!-- <Day v-for="day in daySort(pattern.days)" v-bind:key="day.date" v-bind:day="day" /> -->
+      <Day v-for="day in pattern.days" v-bind:key="day.date" v-bind:day="day" />
     </div>
 
     <div class="diary-add-day">
       <button v-on:click="createDay()" type="button" name="button">Add an entry</button>
+      <button v-on:click="calculateAverage()" type="button" name="button">Average</button>
     </div>
 
   </div>
@@ -54,22 +56,32 @@ export default {
   data () {
       return {
         id: this.pattern.id,
-        day_id: Math.floor(Math.random() * Math.floor(100)),
+        // day_id: Math.floor(Math.random() * Math.floor(100)),
         date: this.start_date,
-        intensity: this.pattern.intensity,
-        username: this.user,
+        intensity: 0,
         isRowLayout: false,
-        sorted_days: {}
+        sorted_days: {},
+        username: this.user,
+        avg: 0
     }
   },
   methods: {
-    logData() {
-      console.log(this.start_date)
-      console.log(this.pattern.days.length)
-    },
     createDay() {
+
+      var newDate = 0
+      if(this.pattern.days != undefined) {
+        if(this.pattern.days.length == 0) {
+          var currentDate = new Date(this.start_date)
+        } else if (this.pattern.days.length > 0) {
+          var currentDate = new Date(this.daySort(this.pattern.days).slice(-1).pop().date)
+        }
+        newDate = new Date()
+        newDate.setDate(currentDate.getDate() + 1)
+        var newDateString = newDate.toISOString().substring(0, 10)
+      }
+
       var day = {
-        date: this.date,
+        date: newDateString,
         intensity: this.intensity
       }
       this.pattern.days.push(day)
@@ -87,6 +99,32 @@ export default {
         this.isRowLayout = false
       } else {
         this.isRowLayout = true
+      }
+    },
+    calculateAverage() {
+      if(this.pattern.days != undefined) {
+        var avg = 0
+        var total = 0
+        // this.pattern.days.forEach(item) {
+        //   total = total + item.intensity
+        // }
+        // console.log(total)
+        this.pattern.days.forEach((el) => {
+          total = total + el.intensity
+          console.log(el.intensity)
+        })
+        console.log("total")
+        console.log(total)
+
+        avg = this.pattern.days.reduce((a, b) => a.intensity + b.intensity, 0)
+        // console.log(typeof this.pattern.days)
+        // avg = this.pattern.days.reduce((a, b) => a + b, 0) / this.pattern.days.length
+        // console.log(this.pattern.days)
+        console.log("avg")
+        console.log(avg)
+        this.avg = total / this.pattern.days.length
+      } else {
+        this.avg = null
       }
     }
   }

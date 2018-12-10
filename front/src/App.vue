@@ -6,8 +6,7 @@
     </div>
 
     <div class="diary" style="border: 1px solid red;">
-      <Diary v-for="pattern in patterns" v-bind:key="pattern.id" v-bind:pattern="pattern" v-bind:start_date="start_date" :user="user" />
-      <!-- <Diary v-for="pattern in patterns" v-bind:key="pattern.id" v-bind:id="pattern.id" v-bind:start_date="patterns.start_date" v-bind:days="pattern.days" /> -->
+      <Diary v-for="pattern in patterns" v-bind:key="pattern.id" v-bind:pattern="pattern" v-bind:start_date="start_date" v-bind:user="user" />
       <input v-model="user" type="text">
       <input v-model="start_date" type="date">
       <button v-on:click="createPattern()" type="button" name="button">Create Pattern</button>

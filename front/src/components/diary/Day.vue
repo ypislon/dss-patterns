@@ -30,13 +30,6 @@ export default {
         required: true
       }
   },
-  data () {
-      return {
-          id: this.id,
-          date: this.date,
-          intensity: this.intensity
-        }
-  },
   methods: {
     logData() {
       console.log(this.day.date)
