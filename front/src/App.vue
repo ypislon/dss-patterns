@@ -67,6 +67,7 @@ export default {
 </script>
 
 <style>
+
 #app {
   margin-top: 80px;
   font-family: 'Source Sans Pro', sans-serif;

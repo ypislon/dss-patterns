@@ -5,6 +5,10 @@
       <h3>Diary Number {{pattern.id}} | user: {{username}} | {{ avg }}</h3>
       <b-button @click="toggleLayout()" type="button" name="button">Toggle Layout</b-button>
       <b-button @click="isFoldedOut ? isFoldedOut = false : isFoldedOut = true" type="button" name="button">Fold diary</b-button>
+
+      <div class="diary-analyse">
+          <Analyser v-bind:pattern="pattern" />
+      </div>
     </div>
 
     <div class="diary-form">
@@ -29,6 +33,7 @@
 
 <script>
 import Day from './Day.vue'
+import Analyser from './Analyser.vue'
 import BootstrapVue from 'bootstrap-vue'
 import Datepicker from 'vuejs-datepicker'
 
@@ -36,7 +41,8 @@ export default {
   components: {
     Day,
     BootstrapVue,
-    Datepicker
+    Datepicker,
+    Analyser
   },
   props: {
     pattern: {
@@ -91,6 +97,9 @@ export default {
     },
     editDay() {
       // submit event to update diary pattern
+    },
+    altDaySort() {
+      this.pattern.date = this.daySort(this.pattern.date)
     },
     daySort(days) {
       return days.sort(function(a, b) {
