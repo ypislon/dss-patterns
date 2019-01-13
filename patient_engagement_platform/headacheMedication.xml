@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Measurement id="HEADACHEMEDICATION" isMandatory="false" isReminderSet="true" enableAnalytics="true" managePatientOverviewIcon="sap-icon://SAP-icons-TNT/error-start-event" performerRequired="true" profileName="ides-headache">
+ <title language="EN">Headache medication</title>
+ <title language="FR">Médicaments contre la migraine</title>
+ <title language="ES">Medicamento para la migraña</title>
+ <description language="EN">Enables you to record the intake of medication against headache attacks.</description>
+ <description language="FR">Vous permet d'enregistrer la consommation de médicaments contre les attaques de maux de tête.</description>
+ <description language="ES">Le permite registrar la ingesta de medicamentos contra los ataques de dolor de cabeza.</description>
+ <!-- TODO: update the hl7standard -->
+ <HL7Standard code="" codeSystem="2.16.840.1.113883.6.96" title="Sleep"/>
+ <quantityMeasurementTypes>
+  <quantityMeasurementType id="SLEEP_SLEEPAMOUNT" precision="4" scale="1" managePatientOverview="true"
+   managePatientChartPlottingMethod="average" visible="true">
+   <quantity id="SLEEPAMOUNT_QTYID" standardUnit="SLEEPAMOUNT_STDUNIT_HR">
+    <title language="EN">Sleep Amount</title>
+    <title language="FR">Somme du sommeil</title>
+    <title language="ES">Cantidad de sueño</title>
+    <HL7Standard code="" codeSystem="2.16.840.1.113883.6.96" title="Sleep Amount"/>
+     <units>
+     <unit id="SLEEPAMOUNT_STDUNIT_HR"/>
+     <unit id="SLEEPAMOUNT_STDUNIT_MIN"/>
+    </units>
+   </quantity>
+    <globalRanges>
+     <upperNormalValue value="9">
+      <title language="EN">Upper Normal</title>
+      <title language="FR">Valeur normale supérieure</title>
+      <title language="ES">Valor normal superior</title>
+     </upperNormalValue>
+     <lowerNormalValue value="6">
+      <title language="EN">Lower Normal</title>
+      <title language="FR">Valeur normale inférieure</title>
+      <title language="ES">Valor normal inferior</title>
+    </lowerNormalValue>
+     <hypoValue value="2">
+      <title language="EN">Hypo</title>
+      <title language="FR">Hypo</title>
+      <title language="ES">Hipo</title>
+    </hypoValue>
+    </globalRanges>
+   </quantityMeasurementType>
+  <quantityMeasurementType id="SLEEP_HEARTRATE" precision="3" scale="0" managePatientOverview="false" visible="true">
+   <quantity id="HEARTRATE" standardUnit="HEARTRATE_STDUNIT_BPM">
+    <title language="EN">Heart rate</title>
+    <title language="FR">Rythme Cardiaque</title>
+    <title language="ES">Ritmo Cardiaco</title>
+    <HL7Standard code="301113001" codeSystem="2.16.840.1.113883.6.96" title="Finding Heart Rate"/>
+   <units>
+     <unit id="HEARTRATE_STDUNIT_BPM"/>
+    </units>
+   </quantity>
+    <globalRanges>
+     <upperNormalValue value="80">
+      <title language="EN">Upper Normal</title>
+      <title language="FR">Valeur normale supérieure</title>
+      <title language="ES">Valor normal superior</title>
+     </upperNormalValue>
+     <lowerNormalValue value="60">
+      <title language="EN">Lower Normal</title>
+      <title language="FR">Valeur normale inférieure</title>
+      <title language="ES">Valor normal inferior</title>
+     </lowerNormalValue>
+     <hyperValue value="100">
+      <title language="EN">Hyper</title>
+      <title language="FR">Hyper</title>
+      <title language="ES">Hiper</title>
+     </hyperValue>
+     <hypoValue value="50">
+      <title language="EN">Hypo</title>
+      <title language="FR">Hypo</title>
+      <title language="ES">Hipo</title>
+     </hypoValue>
+    </globalRanges>
+   </quantityMeasurementType>
+ </quantityMeasurementTypes>
+ <categoryMeasurementTypes>
+  <categoryMeasurementType id="HEADACHE_INTENSITY" entriesPerMeasurement="1">
+   <title language="EN">Intensity of headache</title>
+   <title language="FR">Intensité de maux de tête</title>
+   <title language="ES">Intensidad del dolor de cabeza</title>
+   <categoryMeasurementItems>
+    <categoryMeasurementItem id="HEADACHEINTENSITY_VALUE_NONE" orderIndex="1">
+     <title language="EN">No headache</title>
+     <title language="FR">Aucun mal de tête</title>
+     <title language="ES">Sin dolor de cabeza</title>
+    </categoryMeasurementItem>
+    <categoryMeasurementItem id="HEADACHEINTENSITY_VALUE_MILD" orderIndex="2">
+     <title language="EN">Mild headache</title>
+     <title language="FR">Léger mal de tête</title>
+     <title language="ES">Leve dolor de cabeza</title>
+    </categoryMeasurementItem>
+    <categoryMeasurementItem id="HEADACHEINTENSITY_VALUE_MEDIUM" orderIndex="3">
+     <title language="EN">Strong headache</title>
+     <title language="FR">Fort mal de tête</title>
+     <title language="ES">Fuerte dolor de cabeza</title>
+    </categoryMeasurementItem>
+    <categoryMeasurementItem id="HEADACHEINTENSITY_VALUE_HARD" orderIndex="4">
+     <title language="EN">Severe headache</title>
+     <title language="FR">Maux de tête sévères</title>
+     <title language="ES">Dolor de cabeza intenso</title>
+    </categoryMeasurementItem>
+   </categoryMeasurementItems>
+  </categoryMeasurementType>
+  <categoryMeasurementType id="HEADACHE_PHOTOPHOBIA" entriesPerMeasurement="2">
+   <title language="EN">Environment</title>
+   <title language="FR">Environnement</title>
+   <title language="ES">Ambiente</title>
+   <categoryMeasurementItems>
+    <categoryMeasurementItem id="PHOTOPHOBIA_NO" orderIndex="1">
+     <title language="EN">No</title>
+     <title language="FR">No</title>
+     <title language="ES">No</title>
+    </categoryMeasurementItem>
+    <categoryMeasurementItem id="PHOTOPHOBIA_YES" orderIndex="2">
+     <title language="EN">Yes</title>
+     <title language="FR">Oui</title>
+     <title language="ES">Si</title>
+    </categoryMeasurementItem>
+   </categoryMeasurementItems>
+  </categoryMeasurementType>
+  <categoryMeasurementType id="HEADACHE_PHONOPHOBIA" entriesPerMeasurement="2">
+   <title language="EN">Phonophobia</title>
+   <title language="FR">Phonophobia</title>
+   <title language="ES">Phonophobia</title>
+   <categoryMeasurementItems>
+    <categoryMeasurementItem id="PHONOPHOBIA_NO" orderIndex="1">
+     <title language="EN">No</title>
+     <title language="FR">No</title>
+     <title language="ES">No</title>
+    </categoryMeasurementItem>
+    <categoryMeasurementItem id="PHONOPHOBIA_YES" orderIndex="2">
+     <title language="EN">Yes</title>
+     <title language="FR">Oui</title>
+     <title language="ES">Si</title>
+    </categoryMeasurementItem>
+   </categoryMeasurementItems>
+  </categoryMeasurementType>
+  <categoryMeasurementType id="HEADACHE_NAUSEA" entriesPerMeasurement="2">
+   <title language="EN">Nausea</title>
+   <title language="FR">Nausea</title>
+   <title language="ES">Nausea</title>
+   <categoryMeasurementItems>
+    <categoryMeasurementItem id="NAUSEA_NO" orderIndex="1">
+     <title language="EN">No</title>
+     <title language="FR">No</title>
+     <title language="ES">No</title>
+    </categoryMeasurementItem>
+    <categoryMeasurementItem id="NAUSEA_YES" orderIndex="2">
+     <title language="EN">Yes</title>
+     <title language="FR">Oui</title>
+     <title language="ES">Si</title>
+    </categoryMeasurementItem>
+   </categoryMeasurementItems>
+  </categoryMeasurementType>
+ </categoryMeasurementTypes>
+</Measurement>

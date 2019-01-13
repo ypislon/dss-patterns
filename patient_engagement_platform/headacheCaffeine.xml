@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Measurement id="HEADACHEMEDICATION" isMandatory="false" isReminderSet="true" enableAnalytics="true" managePatientOverviewIcon="sap-icon://SAP-icons-TNT/error-start-event" performerRequired="true" profileName="ides-headache">
+ <title language="EN">Caffeine consumption</title>
+ <title language="FR">Médicaments contre la migraine</title>
+ <title language="ES">Medicamento para la migraña</title>
+ <description language="EN">Enables you to record the consumption of coffeine in e.g. coffee.</description>
+ <description language="FR">Vous permet d'enregistrer la consommation de médicaments contre les attaques de maux de tête.</description>
+ <description language="ES">Le permite registrar la ingesta de medicamentos contra los ataques de dolor de cabeza.</description>
+ <!-- TODO: update the hl7standard -->
+ <HL7Standard code="" codeSystem="2.16.840.1.113883.6.96" title="Sleep"/>
+ <categoryMeasurementTypes>
+  <categoryMeasurementType id="HEADACHE_COFFEINE_USE" entriesPerMeasurement="1">
+   <title language="EN">Coffeine intake</title>
+   <title language="FR">Intensité de maux de tête</title>
+   <title language="ES">Intensidad del dolor de cabeza</title>
+   <categoryMeasurementItems>
+    <categoryMeasurementItem id="HEADACHEINTENSITY_VALUE_NONE" orderIndex="1">
+     <title language="EN">No coffeine</title>
+     <title language="FR">Sin caféine</title>
+     <title language="ES">Sin cafeína</title>
+    </categoryMeasurementItem>
+    <categoryMeasurementItem id="HEADACHEINTENSITY_VALUE_MILD" orderIndex="2">
+     <title language="EN">Low level of coffeine</title>
+     <title language="FR">Faible teneur en caféine</title>
+     <title language="ES">Bajo nivel de cafeína</title>
+    </categoryMeasurementItem>
+    <categoryMeasurementItem id="HEADACHEINTENSITY_VALUE_MEDIUM" orderIndex="3">
+     <title language="EN">Medium level of coffeine</title>
+     <title language="FR">Niveau moyen de caféine</title>
+     <title language="ES">Nivel medio de cafeína</title>
+    </categoryMeasurementItem>
+    <categoryMeasurementItem id="HEADACHEINTENSITY_VALUE_HARD" orderIndex="4">
+     <title language="EN">High level of coffeine</title>
+     <title language="FR">Haut niveau de caféine</title>
+     <title language="ES">Alto nivel de cafeína</title>
+    </categoryMeasurementItem>
+   </categoryMeasurementItems>
+  </categoryMeasurementType>
+ </categoryMeasurementTypes>
+</Measurement>
