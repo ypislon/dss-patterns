@@ -1,6 +1,7 @@
 <template lang="html">
   <div class="">
     <b-button type="button" name="button" @click="analyseDiary()">Analyse pattern</b-button>
+    <b-button type="button" name="button" @click="splitPattern(pattern.days, 0)">Split pattern</b-button>
     <p>
       <span>Ergebnis:</span>
       <br>
@@ -32,17 +33,74 @@ export default {
   },
   methods: {
     analyseDiary() {
+      console.log("hey!")
+    },
+    splitPattern(days, index) {
+
+      var episodes = []
+
+      var days = days
+      var i = index
+
+      var startEpisode = function(index) {
+        var episode = []
+        episode.push(days[j])
+        console.log(index)
+        var startDateEpisode = index
+        var j = index
+        var endEpisode = j
+
+        // find last element of the episode
+        for(j; j < (days.length - j); j++) {
+          console.log("J steht bei " + j)
+          if(days[j+1] == undefined) {
+            console.log("next day is undefined")
+            break
+          }
+          if(days[j+1].intensity == 0) {
+            console.log("next day is breakpoint")
+            // console.log(episode)
+            endEpisode = j + 1
+            episodes.push(days.slice(startDateEpisode, endEpisode))
+            break
+          }
+          if(days[j+1].intensity != 0) {
+            console.log("next day is also headache episode")
+            // console.log(days.slice(index, j + 1))
+            startEpisode(j+1)
+          }
+        }
+
+        console.log("Ende: " + endEpisode)
+        // console.log(days.slice(startDateEpisode, endEpisode))
+        console.log(episodes)
+      }
+
+      for(i; i < days.length; i++) {
+        console.log(i)
+
+        // check if we are on the end of the list of days
+        if(days[i] == undefined) {
+          console.log("end of days")
+          return false
+        }
+
+        // if the next day is a 0, we know that all previous numbers until the next 0 are one pattern
+        else if(days[i].intensity == 0) {
+          console.log("end of episode")
+          console.log("breakpoint: " + i)
+          return false
+        }
+
+        else if(days[i].intensity > 0) {
+          console.log("calling start pattern")
+          return startEpisode(i)
+        }
+      }
 
     },
-    splitPattern(pattern) {
-      pattern.forEach((el) => {
-        if(el) {
-
-        } else {
-
-        }
-      })
-      return
+    breakPattern(days) {
+      var i = 0
     }
   },
   computed: {
